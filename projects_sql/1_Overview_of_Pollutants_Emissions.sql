@@ -1,0 +1,66 @@
+/*
+Title: Overview of Pollutants Emissions
+*/
+
+SELECT year,
+    AVG(co2) AS co2, 
+    AVG(thc_emissions) AS thc, 
+    AVG(co_emissions) AS co, 
+    AVG(nox_emissions) AS nox, 
+    AVG(thc_nox_emissions) AS thc_nox, 
+    AVG(particulates_emissions) AS particulates
+FROM car_fuel
+GROUP BY year
+ORDER BY year;
+
+-- Python Code to Visually Represent this data on Line Chart
+
+/*
+import matplotlib.pyplot as plt
+
+# Data
+years = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013]
+co2 = [216.08865860679333, 213.86033519553072, 214.5609756097561, 205.29086772830678, 
+       207.12304749760918, 197.64281828073993, 200.7992596810934, 201.46379252273493, 
+       196.40924293098206, 189.43166405842462, 182.10675675675677, 168.19983883964545, 
+       159.2286039237987, 152.3252314814815]
+thc = [91.33503836317135, 82.0406374501992, 81.87871437234688, 106.31451123254402, 
+       107.85957930642411, None, 56.75518847945786, 52.46196557468073, 52.0235825388861, 
+       51.19569399908381, 48.80286544850496, 45.620653319283456, 42.40056657223796, 42.59855769230769]
+co = [566.773943254198, 546.1941066417212, 510.9740566037736, 447.6386036960986, 
+      477.4703557312253, 557.8349699945445, 353.8803199085975, 308.8182737693864, 
+      304.62785041045913, 294.4354460093893, 287.19448198198216, 294.5409615901155, 
+      291.50156411714534, 286.5205193600742]
+nox = [136.17078189300412, 119.13376623376624, 131.98695652173913, 295.5405405405405, 
+       287.0639534883721, 135.50575342465754, 126.56260720411663, 115.4753044654939, 
+       102.9484756097561, 168.0987199582028, 104.77319052987598, 95.27089492072024, 
+       85.15272533409156, 86.23417574773939]
+thc_nox = [None, None, None, None, None, None, None, None, None, None, None, 174.92777777777778, 
+           172.08928978893323, 169.25704067948143]
+particulates = [0.0722173913043479, 0.049108932461873624, 0.042061224489795886, 0.09999999999999976, 
+                0.10181818181818161, 32.062913907284766, 0.02618057921635423, 0.018000000000000006, 
+                0.013414062499999952, 0.06482314266929702, 0.2588813905930455, 5.003197278911573, 
+                0.716626220362623, 0.5116435288849104]
+
+# Plotting
+plt.figure(figsize=(14, 8))
+
+# Plot each pollutant as a line
+plt.plot(years, co2, label='CO2', marker='o')
+plt.plot(years, thc, label='THC', marker='o')
+plt.plot(years, co, label='CO', marker='o')
+plt.plot(years, nox, label='NOx', marker='o')
+plt.plot(years, thc_nox, label='THC + NOx', marker='o')
+plt.plot(years, particulates, label='Particulates', marker='o')
+
+# Adding labels, title, and legend
+plt.xlabel('Year')
+plt.ylabel('Emissions')
+plt.title('Trends in Emissions from 2000 to 2013')
+plt.xticks(years, rotation=45)
+plt.legend()
+
+# Displaying the plot
+plt.tight_layout()
+plt.show()
+*/
